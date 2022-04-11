@@ -1,0 +1,31 @@
+  <table>
+   <tr class='header'>
+     <th>Name</th>
+     <th>Username</th>
+     <th>Email</th>
+     <th>Address</th>
+     <th>Phone</th>
+     <th>Company</th>
+     <th>Actions</th>
+   </tr>
+   {% for users in User %}
+     <tr class='data'><form action="index.php?remove={{ loop.index0 }}" method="post">
+        <td>{{ users.name }}</td>
+        <td>{{ users.username }}</td>
+        <td>{{ users.email }}</td>
+        <td>{{ users.address.GetAddress }}</td>
+        <td>{{ users.phone }}</td>
+        <td>{{ users.company.name }}</td>
+        <td class='actions'><input type="submit" name="remove" value='Remove'>  </input></td>
+     </form></tr>
+   {% endfor %}
+   <tr class='add'><form action="index.php?step=add" method="post">
+      <td><input type="text" name="name">  </input></td>
+      <td><input type="text" name="username">  </input></td>
+      <td><input type="text" name="email">  </input></td>
+      <td><input type="text" name="address">  </input></td>
+      <td><input type="text" name="phone">  </input></td>
+      <td><input type="text" name="company">  </input></td>
+      <td class='actions'><input type="submit" name="add" value='Add'>  </input></td>
+   </form></tr>
+  </table>
